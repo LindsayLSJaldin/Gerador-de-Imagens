@@ -1,0 +1,461 @@
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+#appShell {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+#appShell>.flex-grow-1 {
+    min-width: 0;
+    /* evita expandir e empurrar a sidebar */
+    overflow: hidden;
+}
+
+#logoutBtn {
+    border-radius: 100%;
+    background-color: #FAA41F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: left 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    border: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#sidebar {
+    background-color: #005B7F;
+    color: white;
+    width: 220px;
+    transition: all 0.3s;
+    overflow: hidden;
+    padding: 1rem;
+    display: flex;
+    box-sizing: border-box;
+    flex: 0 0 220px;
+    flex-direction: column;
+    min-height: 0;
+}
+
+#sidebar:not(.closed) #sidebar-inner {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    max-height: 100%;
+    min-height: 0;
+}
+
+#sidebar.closed #sidebar-inner {
+    overflow: hidden;
+}
+
+#sidebar.closed {
+    width: 0 !important;
+    flex: 0 0 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+#sidebar-inner {
+    background-color: #0092C9;
+    border-radius: 12px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00A3D7 transparent;
+}
+
+#sidebar.closed * {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#sidebar-inner::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sidebar-inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar-inner::-webkit-scrollbar-thumb {
+    background-color: #00A3D7;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+#sidebar-inner:hover::-webkit-scrollbar-thumb {
+    background-color: #0092C9;
+}
+
+#toggleSidebar {
+    position: fixed;
+    top: 5.3rem;
+    left: 236px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #0092C9;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: left 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    border: none;
+}
+
+#sidebar.closed+#toggleSidebar,
+#toggleSidebar.sidebar-closed {
+    left: 1rem;
+}
+
+#subjectList button {
+    border-radius: 10px;
+}
+
+/* Wrapper do select custom */
+.select-wrap {
+    position: relative;
+}
+
+/* Botão "barra de opções" arredondado, sem borda aparente */
+.select-btn {
+    background: #ffffff;
+    border: 0;
+    border-radius: 9999px;
+    /* bem arredondado */
+    padding: 0.5rem 1rem;
+    color: #111827;
+    transition: box-shadow .2s ease, transform .15s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.select-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 146, 201, .15);
+}
+
+.select-btn:active {
+    transform: translateY(1px);
+}
+
+/* Menu com animação suave na abertura */
+.select-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    max-height: 143px;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 20;
+}
+
+.select-wrap.open .select-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Opções com espaçamento e bordas arredondadas */
+.select-item {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    color: #111827;
+    text-align: left;
+    border-radius: 10px;
+    /* arredondadas */
+    padding: 8px 10px;
+    /* espaço interno */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: background-color .15s ease;
+}
+
+.select-item+.select-item {
+    margin-top: 6px;
+}
+
+/* espaço entre opções */
+.select-item:hover {
+    background: #F0F7FB;
+}
+
+/* Reusa sua barra de rolagem custom */
+.custom-scroll::-webkit-scrollbar {
+    width: 8px
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #00A3D7;
+    border-radius: 8px
+}
+
+.custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #00A3D7 transparent
+}
+
+.subjects-font,
+#subjectList button,
+#subjectSelect,
+#subjectSelect option {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#subjectList button {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+    border: none;
+}
+
+#subjectList button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#sendBtn {
+    background-color: #ED1E52;
+    border-color: #ED1E52;
+    color: white;
+}
+
+#promptInput {
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    resize: none;
+    line-height: 1.25;
+}
+
+#promptInput::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    /* Chrome/Edge/Safari */
+}
+
+:root {
+    --bubble-user-bg: #ED1E52;
+    --bubble-user-text: #ffffff;
+    --bubble-bot-bg: #D9D9D9;
+    --bubble-bot-text: #000000;
+    --chat-img-size: 256px;
+}
+
+#chatArea {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--bubble-bot-bg) transparent;
+    /* usa cor do balão do bot */
+}
+
+#chatArea::-webkit-scrollbar {
+    width: 8px;
+    /* Chrome/Edge/Safari */
+}
+
+#chatArea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chatArea::-webkit-scrollbar-thumb {
+    background-color: var(--bubble-bot-bg);
+    /* combina com bolha do usuário */
+    border-radius: 8px;
+    border: 3px solid transparent;
+    /* “respiro” como nas outras barras */
+    background-clip: content-box;
+}
+
+#chatArea:hover::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    /* hover (ajuste se quiser) */
+}
+
+#chatArea .bubble {
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: 40%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    border-radius: 20px;
+    line-height: 1.2;
+}
+
+#chatArea .bubble-user {
+    background: var(--bubble-user-bg);
+    color: var(--bubble-user-text);
+}
+
+#chatArea .bubble-bot {
+    background: var(--bubble-bot-bg);
+    color: var(--bubble-bot-text);
+    position: relative;
+}
+
+#chatArea .chat-media {
+    position: relative;
+    /* âncora para o botão */
+    display: flex;
+    flex-direction: column;
+    width: min(100%, var(--chat-img-size));
+    /* imagem continua 256px */
+    padding-right: 0;
+    padding-bottom: 30px;
+    /* reserva espaço pro botão */
+}
+
+#chatArea .chat-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+#chatArea .chat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* corta para caber no quadrado */
+    object-position: center;
+    display: block;
+}
+
+#chatArea .download-row {
+    margin-top: 0;
+    padding-right: 0;
+}
+
+#chatArea .download-row.stick {
+    position: absolute;
+    bottom: 14px;
+    right: 6px;
+    margin: 0;
+    width: auto;
+}
+
+#chatArea .download-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background-color: #ED1E52;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 12px;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#chatArea .download-btn:hover {
+    background-color: #ED1E52;
+}
+
+#chatArea .bubble-bot {
+    background: var(--bubble-bot-bg);
+    color: var(--bubble-bot-text);
+}
+
+#chatArea .bot-title {
+    padding: 5px;
+}
+
+.bubble-loading {
+    opacity: 0.95;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton,
+.skeleton-line {
+    position: relative;
+    overflow: hidden;
+    background: #e6e6e6;
+}
+
+.skeleton::after,
+.skeleton-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shimmer 1.1s infinite;
+    transform: translateX(-100%);
+}
+
+.skeleton-line {
+    height: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.55);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+
+/* Reuso da moldura quadrada já existente */
+#chatArea .chat-image.skeleton {
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+}
+
+.bg-input {
+    background-color: #D9D9D9;
+}

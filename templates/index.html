@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Imagens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column vh-100">
+    <header id="topBanner" class="bg-white d-flex justify-content-between align-items-center position-relative">
+        <div class="d-flex justify-content-start">
+            <img src="/static/logo.png" alt="Logo" class="banner-logo" style="height: 68px; width: auto;">
+        </div>
+        <div class="d-flex justify-content-end align-content-center p-3">
+            <a id="logoutBtn" 
+                class="btn btn-sm rounded-pill d-flex align-items-center gap-2">
+                <span class="ps-1 pe-1" style="font-family: 'Montserrat', sans-serif; font-weight: 600;">Deslogar</span>
+            </a>
+        </div>
+    </header>       
+
+
+    <div id="appShell" class="d-flex flex-grow-1">
+        <!-- Sidebar -->
+        <div id="sidebar" class="d-flex flex-column">
+            <div class="pb-2 align-content-center"
+                style="font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;">Histórico:</div>
+            <div id="sidebar-inner" class="d-flex flex-column mx-auto p-2" style="width:100%;">
+                <ul id="subjectList" class="list-unstyled mb-0"></ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Toggle -->
+        <button id="toggleSidebar" class="btn" aria-label="Abrir/fechar menu"
+            style="width:40px; height:40px; color:white; display:flex; align-items:center; justify-content:center;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-menu" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" style="width:40px; height:40px; transform:scale(1.5);">
+                <line x1="5" x2="19" y1="12" y2="12" />
+                <line x1="5" x2="19" y1="8" y2="8" />
+                <line x1="5" x2="19" y1="16" y2="16" />
+            </svg>
+        </button>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1 d-flex flex-column" style="background-color: #F3EFEC;">
+
+            <!-- Top Bar -->
+            <div class="p-3 d-flex justify-content-end align-items-center position-relative">
+                <div class="position-relative" style="min-width: 260px;">
+                    <!-- Dropdown custom (substitui a UI do select) -->
+                    <div id="customSelect" class="select-wrap">
+                        <button id="subjectSelectBtn" type="button"
+                            class="select-btn w-100 d-flex justify-content-between align-items-center">
+                            <span id="subjectSelectLabel">Selecione a matéria</span>
+                            <i data-lucide="chevron-down" class="ms-2"></i>
+                        </button>
+                        <div id="subjectMenu" class="select-menu custom-scroll"><!-- itens via JS --></div>
+                    </div>
+
+                    <!-- Select nativo permanece oculto para compatibilidade -->
+                    <select id="subjectSelect" class="form-select d-none">
+                        <option value="">Selecione a matéria</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Chat / Área da Imagem -->
+            <div id="chatArea" class="flex-grow-1 p-3 d-flex flex-column justify-end overflow-auto"></div>
+
+            <!-- Input -->
+            <div class="ps-3 d-flex align-items-center"
+                style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #000000;">Digite sua ideia:</div>
+            <div class="p-2 d-flex gap-2">
+                <textarea id="promptInput" placeholder="Descreva sua imagem"
+                    class="form-control rounded-pill bg-input align-content-center"></textarea>
+                <button id="sendBtn"
+                    class="btn btn-info rounded-circle d-flex align-items-center justify-content-center"
+                    style="width:40px; height:40px; color: white;">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="width:40px; height:40px;">
+                        <g transform="scale(1.5) translate(-4,-4)">
+                            <path d="M5 12H19M12 5L19 12L12 19" stroke="white" stroke-width="2" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

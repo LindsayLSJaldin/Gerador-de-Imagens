@@ -1,0 +1,161 @@
+# =========================
+# OS/Editor
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+.vs/
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+dist/
+build/
+.tmp/
+.nyc_output/
+coverage/
+
+# =========================
+# Python
+# =========================
+# Virtual env
+.venv/
+venv/
+ENV/
+env/
+
+# Caches/artefatos
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# =========================
+# Modelos/arquivos grandes
+# =========================
+# Pastas de modelos locais (não versionar)
+models/
+!models/.gitkeep
+
+# Pesos/checpoints comuns
+*.safetensors
+*.ckpt
+*.bin
+
+# Caches gerais
+.cache/
+logs/
+*.log
+
+# =========================
+# Config/Segredos
+# =========================
+.env
+.env.*
+*.env.local
+*.env.development
+*.env.production
+
+# =========================
+# Saídas/gerações
+# =========================
+outputs/
+generated/
+```# filepath: c:\Users\Linds\Documentos\Arquivos Mauá\Programação\gerador_imagens\.gitignore
+# =========================
+# OS/Editor
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+.vs/
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+dist/
+build/
+.tmp/
+.nyc_output/
+coverage/
+
+# =========================
+# Python
+# =========================
+# Virtual env
+.venv/
+venv/
+ENV/
+env/
+
+# Caches/artefatos
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# =========================
+# Modelos/arquivos grandes
+# =========================
+# Pastas de modelos locais (não versionar)
+models/
+!models/.gitkeep
+
+# Pesos/checpoints comuns
+*.safetensors
+*.ckpt
+*.bin
+
+# Caches gerais
+.cache/
+logs/
+*.log
+
+# =========================
+# Config/Segredos
+# =========================
+.env
+.env.*
+*.env.local
+*.env.development
+*.env.production
+
+# =========================
+# Saídas/gerações
+# =========================
+outputs/
+generated/
