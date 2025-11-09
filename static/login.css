@@ -1,0 +1,214 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Login Container */
+.login-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Background Image */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/static/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Background Overlay with Blur */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Login Card Wrapper */
+.login-card-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+/* Login Card */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 2.5rem;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-logo {
+    height: 90px;            /* ajuste conforme necessário */
+    max-width: 370px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-error {
+  background: #f8d7da;
+  color: #842029;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+
+  overflow: hidden;
+  max-height: 0;          /* não ocupa altura */
+  padding: 0 1rem;        /* só padding horizontal para não “pular” largura */
+  margin: 0;              /* sem gap quando oculta */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: max-height 0.25s ease, padding 0.2s ease, opacity 0.2s ease, margin 0.2s ease;
+}
+
+.login-error.show {
+  max-height: 120px;      /* suficiente para 1–2 linhas */
+  padding: 0.75rem 1rem;  /* padding aparece */
+  margin: 0 0 1rem 0;     /* espaço abaixo quando visível */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Form Label */
+.form-label-custom {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 0.1rem;
+    margin-left: 1.2rem;
+    font-weight: 600;
+}
+
+/* Form Control Custom */
+.form-control-custom {
+    padding: 0.75rem 1.25rem;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+.form-control-custom:focus {
+    background-color: white;
+    box-shadow: 0 0 0 2px #ED1E52;
+    border: none;
+    outline: none;
+}
+
+/* Forgot Password Link */
+.forgot-password-link {
+    font-family: 'montserrat', sans-serif;
+    font-weight: 600;
+    color: #ED1E52;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.forgot-password-link:hover {
+    color: #ED1E52;
+    text-decoration: none;
+}
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    background-color: #ED1E52;
+    border: none;
+    border-radius: 50px;
+    padding: 0.875rem 1.5rem;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #ED1E52;
+    color: white;
+}
+
+.btn-login:focus {
+    box-shadow: 0 0 0 3px #a00d3249;
+    outline: none;
+}
+
+.btn-login:active {
+    background-color: #75132b;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+
+    .brand-name {
+        font-size: 1.25rem;
+    }
+
+    .cube-3d {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-container {
+        padding: 0.5rem;
+    }
+
+    .login-card {
+        border-radius: 1rem;
+        padding: 1.5rem 1rem;
+    }
+}

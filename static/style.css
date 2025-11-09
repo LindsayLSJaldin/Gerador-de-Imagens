@@ -25,9 +25,23 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: left 0.3s;
+    transition: left 0.3s, background-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     border: none;
+}
+
+#logoutBtn:hover {
+    background-color: #FAA41F;
+    color: white;
+}
+
+#logoutBtn:focus {
+    box-shadow: 0 0 0 3px rgba(250, 164, 31, 0.3);
+    outline: none;
+}
+
+#logoutBtn:active {
+    background-color: #C17F17; /* tom mais escuro do laranja */
 }
 
 body {
